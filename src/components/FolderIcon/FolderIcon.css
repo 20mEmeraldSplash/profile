@@ -1,0 +1,32 @@
+/* FolderIcon.css */
+
+.folder-icon-container {
+  display: flex;
+  flex-direction: column; /* 上下布局 */
+  align-items: center; /* 水平居中 */
+  width: 80px; /* 固定宽度 */
+}
+
+.folder-icon-image-container {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center; /* 图片水平居中 */
+  align-items: center; /* 图片垂直居中 */
+  overflow: hidden; /* 隐藏超出部分 */
+  border-radius: 8px; /* 可选：圆角 */
+}
+
+.folder-icon-image {
+  height: 80px; /* 图片高度固定 */
+  width: auto; /* 宽度随意 */
+  object-fit: contain; /* 确保图片不会被拉伸 */
+}
+
+.folder-icon-label {
+  margin-top: 4px; /* 图片与文字的间距 */
+  font-size: 12px; /* 文字大小 */
+  color: #333; /* 文字颜色 */
+  text-align: center; /* 文本居中 */
+  word-wrap: break-word; /* 如果文字过长，自动换行 */
+}

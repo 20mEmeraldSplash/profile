@@ -1,0 +1,11 @@
+/* DesktopContent.css */
+
+.desktop-content-container {
+  width: 100vw; /* 宽度占满屏幕 */
+  height: fit-content; /* 高度根据内容动态调整 */
+  padding: 16px; /* 内边距 */
+  display: flex; /* 使用 flex 布局 */
+  flex-direction: column;
+  flex-wrap: wrap; /* 如果屏幕宽度不足，内容换行 */
+  gap: 24px; /* 子项之间的间距 */
+}
