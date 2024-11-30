@@ -1,0 +1,7 @@
+/* src/styles/variables.css */
+
+:root {
+  --header-bg-color: rgba(240, 240, 240, 0.75); /* 头部背景颜色 */
+  --header-text-color: #333; /* 头部文字颜色 */
+  --header-height: 32px; /* 头部高度 */
+}

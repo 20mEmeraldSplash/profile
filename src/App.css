@@ -3,8 +3,6 @@
 .app {
   height: 100vh; /* 占据整个屏幕高度 */
   display: flex;
-  justify-content: center; /* 水平居中 */
-  align-items: center; /* 垂直居中 */
   background-image: url('./assets/background.jpg'); /* 替换为你的背景图片URL */
   background-size: cover; /* 背景图片覆盖整个容器 */
   background-position: center; /* 图片居中 */
@@ -14,5 +12,4 @@
 .content {
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 增加文字的可读性 */
-  text-align: center;
 }
