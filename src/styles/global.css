@@ -1,0 +1,13 @@
+/* src/styles/global.css */
+
+body {
+  margin: 0; /* 移除默认的外边距 */
+  padding: 0; /* 可选：移除默认的内边距 */
+  font-family: Arial, sans-serif; /* 设置全局字体 */
+  background-color: #f0f0f0; /* 可选：设置背景颜色 */
+  color: #333; /* 可选：设置全局字体颜色 */
+}
+
+* {
+  box-sizing: border-box; /* 确保所有元素的 box 模型一致 */
+}
