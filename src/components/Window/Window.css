@@ -54,7 +54,7 @@
 /* 左侧按钮容器 */
 .window-header-left {
   display: flex;
-  gap: 8px; /* 按钮之间的间距 */
+  gap: 10px; /* 按钮之间的间距 */
 }
 
 /* 标题 */
@@ -86,14 +86,4 @@
 .window-content {
   flex-grow: 1;
   overflow: hidden;
-}
-
-/* 窗口放大按钮的 hover 状态 */
-.maximize-button:hover {
-  transform: scale(1.1); /* 鼠标悬停时放大 */
-}
-
-/* 窗口关闭按钮的 hover 状态 */
-.close-button:hover {
-  transform: scale(1.1); /* 鼠标悬停时放大 */
 }
