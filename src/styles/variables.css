@@ -4,4 +4,8 @@
   --header-bg-color: rgba(240, 240, 240, 0.75); /* 头部背景颜色 */
   --header-text-color: #333; /* 头部文字颜色 */
   --header-height: 32px; /* 头部高度 */
+
+  --close-button-color: #ff5e57; /* 关闭按钮颜色 */
+  --maximize-button-color: #27c840; /* 放大按钮颜色 */
+  --header-background-color: #f0f0f0; /* 标题栏背景颜色 */
 }
