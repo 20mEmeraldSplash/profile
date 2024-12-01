@@ -3,6 +3,7 @@
 .desktop-content-container {
   width: 100vw; /* 宽度占满屏幕 */
   height: fit-content; /* 高度根据内容动态调整 */
+  min-height: calc(100vh - 32px - 80px);
   padding: 16px; /* 内边距 */
   display: flex; /* 使用 flex 布局 */
   flex-direction: column;

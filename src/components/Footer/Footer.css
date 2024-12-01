@@ -1,0 +1,16 @@
+.footer {
+  width: 80vw;
+  height: 76px;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.8); /* 半透明白色 */
+  position: fixed;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%); /* 居中 */
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease; /* 动画过渡 */
+}
+
+.footer.small-window {
+  width: 100vw;
+}
