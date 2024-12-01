@@ -1,0 +1,99 @@
+/* 窗口背景遮罩 */
+.window-overlay {
+  position: fixed; /* 固定在视窗 */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 保证窗口位于最上层 */
+}
+
+/* 窗口样式 */
+.window {
+  width: 60vw;
+  height: 90vh;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out; /* 只对 transform 进行过渡 */
+  position: fixed; /* 使窗口独立于页面布局 */
+  top: 50%; /* 垂直居中 */
+  left: 50%; /* 水平居中 */
+  transform: translate(-50%, -50%) scale(1); /* 初始状态保持在中心 */
+  z-index: 1001; /* 确保窗口在遮罩层之上 */
+}
+
+/* 放大状态 */
+.window.maximized {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform: translate(0, 0) scale(1); /* 放大状态时保持在中心 */
+  border-radius: 0;
+  transition: transform 0.3s ease-in-out; /* 添加 transform 的过渡效果 */
+}
+
+/* 窗口标题栏 */
+.window-header {
+  background-color: var(--header-background-color); /* 使用颜色变量 */
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 左侧按钮容器 */
+.window-header-left {
+  display: flex;
+  gap: 8px; /* 按钮之间的间距 */
+}
+
+/* 标题 */
+.window-title {
+  margin-left: 16px;
+  flex-grow: 1;
+  text-align: center; /* 标题居中 */
+}
+
+/* 窗口放大按钮 */
+.maximize-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--maximize-button-color); /* 使用颜色变量 */
+}
+
+/* 窗口关闭按钮 */
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--close-button-color); /* 使用颜色变量 */
+}
+
+/* 窗口内容区域 */
+.window-content {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+/* 窗口放大按钮的 hover 状态 */
+.maximize-button:hover {
+  transform: scale(1.1); /* 鼠标悬停时放大 */
+}
+
+/* 窗口关闭按钮的 hover 状态 */
+.close-button:hover {
+  transform: scale(1.1); /* 鼠标悬停时放大 */
+}
