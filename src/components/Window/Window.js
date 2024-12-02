@@ -51,7 +51,11 @@ function Window({ type, onClose, children }) {
             ></button>
           </div>
           <span className="window-title">
-            {type === 'pdf' ? 'PDF Viewer' : 'Window'}
+            {type === 'pdf'
+              ? 'PDF Viewer'
+              : type === 'blank'
+                ? 'Blank Window'
+                : 'Window'}
           </span>
         </div>
         <div className="window-content">{children}</div>
