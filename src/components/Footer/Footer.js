@@ -1,4 +1,6 @@
 import React from 'react'
+import AppIcon from '../AppIcon/AppIcon'
+import EaseStarLogo from '../../assets/logos/adaptive-icon.png'
 import './Footer.css'
 
 function Footer() {
@@ -16,7 +18,17 @@ function Footer() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  return <footer className={`footer ${isSmallWindow ? 'small-window' : ''}`} />
+  return (
+    <footer className={`footer ${isSmallWindow ? 'small-window' : ''}`}>
+      <a
+        href="https://apps.apple.com/us/app/easestar/id6471627227"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <AppIcon src={EaseStarLogo} alt="EaseStar App Icon" />
+      </a>
+    </footer>
+  )
 }
 
 export default Footer
