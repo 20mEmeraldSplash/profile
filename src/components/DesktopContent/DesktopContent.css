@@ -1,12 +1,12 @@
 /* DesktopContent.css */
 
 .desktop-content-container {
-  width: 100vw; /* 宽度占满屏幕 */
-  height: fit-content; /* 高度根据内容动态调整 */
+  width: 100vw;
+  height: fit-content;
   min-height: calc(100vh - 32px - 80px);
-  padding: 16px; /* 内边距 */
-  display: flex; /* 使用 flex 布局 */
+  padding: 16px;
+  display: flex;
   flex-direction: column;
-  flex-wrap: wrap; /* 如果屏幕宽度不足，内容换行 */
-  gap: 24px; /* 子项之间的间距 */
+  flex-wrap: wrap;
+  gap: 24px;
 }

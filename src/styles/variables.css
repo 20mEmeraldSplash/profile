@@ -8,4 +8,6 @@
   --close-button-color: #ff5e57; /* 关闭按钮颜色 */
   --maximize-button-color: #27c840; /* 放大按钮颜色 */
   --header-background-color: #f0f0f0; /* 标题栏背景颜色 */
+
+  --menu-hover-background-color: #e0e0e0;
 }
