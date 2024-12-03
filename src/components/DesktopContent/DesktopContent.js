@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import FolderIcon from '../FolderIcon/FolderIcon'
-import Window from '../Window/Window' // 引入新组件
+import PDFWindow from '../PDFWindow/PDFWindow' // 引入新组件
 
 import pdfIcon from '../../assets/icons/pdf-icon.png'
 import folderIcon from '../../assets/icons/folder-icon.png'
@@ -45,18 +45,18 @@ function DesktopContent({ children }) {
 
       {/* 条件渲染窗口 */}
       {openWindow === 'pdf' && (
-        <Window type="pdf" onClose={closeWindow}>
+        <PDFWindow type="pdf" onClose={closeWindow}>
           <iframe
             src={resumePdf}
             title="PDF Viewer"
             style={{ width: '100%', height: '100%', border: 'none' }}
           />
-        </Window>
+        </PDFWindow>
       )}
       {openWindow === 'blank' && ( // 新增条件渲染空白窗口
-        <Window type="blank" onClose={closeWindow}>
+        <PDFWindow type="blank" onClose={closeWindow}>
           <h1>Hello</h1>
-        </Window>
+        </PDFWindow>
       )}
     </div>
   )
