@@ -12,35 +12,50 @@ import resumePdf from '../../assets/pdf/resume.pdf'
 
 import './DesktopContent.css'
 
-function DesktopContent({ children }) {
+function DesktopContent() {
   const [openWindow, setOpenWindow] = useState(null)
+  const [defaultMenu, setDefaultMenu] = useState('appStore') // 默认菜单项
 
+  // 打开PDF窗口
   const openPdfWindow = () => {
     setOpenWindow('pdf')
   }
 
+  // 关闭窗口
   const closeWindow = () => {
     setOpenWindow(null)
   }
 
+  // 打开App Store窗口
   const openAppStoreWindow = () => {
     setOpenWindow('appStore')
+    setDefaultMenu('appStore') // 设置默认菜单为App Store
+  }
+
+  // 打开Documents窗口
+  const openDocumentsWindow = () => {
+    setOpenWindow('appStore') // 使用同一个MacStyleWindow
+    setDefaultMenu('documents') // 设置默认菜单为Documents
   }
 
   return (
     <div className="desktop-content-container">
+      {/* PDF 图标 */}
       <div onClick={openPdfWindow} style={{ cursor: 'pointer' }}>
         <FolderIcon imageSrc={pdfIcon} label="Resume" />
       </div>
 
+      {/* App Store 图标 */}
       <div onClick={openAppStoreWindow} style={{ cursor: 'pointer' }}>
         <FolderIcon imageSrc={appStoreIcon} label="App Store" />
       </div>
 
-      <div onClick={openAppStoreWindow} style={{ cursor: 'pointer' }}>
+      {/* Documents 图标 */}
+      <div onClick={openDocumentsWindow} style={{ cursor: 'pointer' }}>
         <FolderIcon imageSrc={folderIcon} label="Documents" />
       </div>
 
+      {/* 条件渲染PDF窗口 */}
       {openWindow === 'pdf' && (
         <PDFWindow type="pdf" onClose={closeWindow}>
           <iframe
@@ -50,11 +65,13 @@ function DesktopContent({ children }) {
           />
         </PDFWindow>
       )}
+
+      {/* 条件渲染MacStyleWindow */}
       {openWindow === 'appStore' && (
-        <MacStyleWindow onClose={closeWindow}>
+        <MacStyleWindow onClose={closeWindow} defaultMenu={defaultMenu}>
+          {/* 在此处可添加额外内容 */}
           <div style={{ padding: '16px' }}>
-            <h1>Welcome to the App Store</h1>
-            <p>Browse and install your favorite applications here!</p>
+            <p>Explore your selected menu content here!</p>
           </div>
         </MacStyleWindow>
       )}
