@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import './PDFWindow.css'
-import '../../styles/variables.css' // 引入 CSS 变量
+import '../../styles/variables.css'
 
-// 引入 PNG 文件
 import closeIcon from '../../assets/icons/close-icon.png'
 import maximizeIcon from '../../assets/icons/fullscreen-icon.png'
 import minimizeIcon from '../../assets/icons/minscreen-icon.png'
 
 function PDFWindow({ type, onClose, children }) {
-  const [isMaximized, setIsMaximized] = useState(false) // 控制窗口是否放大
+  const [isMaximized, setIsMaximized] = useState(false)
 
   const toggleMaximize = () => {
     setIsMaximized(!isMaximized)
@@ -20,7 +19,6 @@ function PDFWindow({ type, onClose, children }) {
       <div className={`window ${type} ${isMaximized ? 'maximized' : ''}`}>
         <div className="window-header">
           <div className="window-header-left">
-            {/* 使用 PNG 文件作为按钮图标 */}
             <button
               className="close-button"
               onClick={onClose}
@@ -65,9 +63,9 @@ function PDFWindow({ type, onClose, children }) {
 }
 
 PDFWindow.propTypes = {
-  type: PropTypes.string.isRequired, // 窗口类型，例如 'pdf'
-  onClose: PropTypes.func.isRequired, // 关闭窗口的回调函数
-  children: PropTypes.node, // 窗口的内容
+  type: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.node,
 }
 
 export default PDFWindow
