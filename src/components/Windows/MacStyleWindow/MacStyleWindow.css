@@ -87,19 +87,29 @@
   margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
+  row-gap: 4px;
   width: 100%;
 }
 
 .mac-window-menu-item {
+  display: flex;
+  flex-direction: row;
+  column-gap: 4px;
   padding: 8px;
   cursor: pointer;
   font-size: 14px;
   color: #555;
   width: 100%;
   text-align: left;
+  align-items: center;
 }
 
 .mac-window-menu-item.active {
   background-color: var(--menu-hover-background-color);
   border-radius: 8px;
+}
+
+.mac-window-menu-icon {
+  width: 18px;
+  height: 18px;
 }

@@ -6,9 +6,13 @@ import closeIcon from '../../../assets/icons/close-icon.png'
 import maximizeIcon from '../../../assets/icons/fullscreen-icon.png'
 import minimizeIcon from '../../../assets/icons/minscreen-icon.png'
 
+import appStoreIcon from '../../../assets/outline-icons/app-store-icon.png'
+import desktopIcon from '../../../assets/outline-icons/desktop-icon.png'
+import documentsIcon from '../../../assets/outline-icons/documents-icon.png'
+
 function MacStyleWindow({ onClose, defaultMenu, children }) {
   const [isMaximized, setIsMaximized] = useState(false)
-  const [selectedMenu, setSelectedMenu] = useState(defaultMenu) // Default menu based on props
+  const [selectedMenu, setSelectedMenu] = useState(defaultMenu)
 
   useEffect(() => {
     setSelectedMenu(defaultMenu) // Ensure the selected menu updates if the default changes
@@ -19,9 +23,9 @@ function MacStyleWindow({ onClose, defaultMenu, children }) {
   }
 
   const menuItems = [
-    { key: 'desktop', label: 'Desktop' },
-    { key: 'appStore', label: 'App Store' },
-    { key: 'documents', label: 'Documents' },
+    { key: 'desktop', label: 'Desktop', icon: desktopIcon },
+    { key: 'appStore', label: 'App Store', icon: appStoreIcon },
+    { key: 'documents', label: 'Documents', icon: documentsIcon },
   ]
 
   return (
@@ -50,9 +54,16 @@ function MacStyleWindow({ onClose, defaultMenu, children }) {
             {menuItems.map(item => (
               <div
                 key={item.key}
-                className={`mac-window-menu-item ${selectedMenu === item.key ? 'active' : ''}`}
+                className={`mac-window-menu-item ${
+                  selectedMenu === item.key ? 'active' : ''
+                }`}
                 onClick={() => setSelectedMenu(item.key)}
               >
+                <img
+                  src={item.icon}
+                  alt={`${item.label} Icon`}
+                  className="mac-window-menu-icon"
+                />
                 {item.label}
               </div>
             ))}
