@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import FolderIcon from '../FolderIcon/FolderIcon'
-import PDFWindow from '../PDFWindow/PDFWindow'
+import PDFWindow from '../Windows/PDFWindow/PDFWindow'
 import MacStyleWindow from '../Windows/MacStyleWindow/MacStyleWindow'
 
 import pdfIcon from '../../assets/icons/pdf-icon.png'
