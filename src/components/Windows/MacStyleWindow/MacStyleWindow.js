@@ -70,10 +70,13 @@ function MacStyleWindow({ onClose, defaultMenu, children }) {
           </div>
         </div>
         <div className="mac-window-content">
-          <h1>
-            {menuItems.find(item => item.key === selectedMenu)?.label ||
-              'Select a Menu'}
-          </h1>
+          <div className="mac-window-content-header">
+            <div className="mac-window-content-header-title">
+              {menuItems.find(item => item.key === selectedMenu)?.label ||
+                'Select a Menu'}
+            </div>
+          </div>
+
           {children}
         </div>
       </div>

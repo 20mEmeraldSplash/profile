@@ -1,6 +1,6 @@
 import React from 'react'
 import AppIcon from '../AppIcon/AppIcon'
-import EaseStarLogo from '../../assets/logos/adaptive-icon.png'
+import EaseStarLogo from '../../assets/logos/easestar.png'
 import './Footer.css'
 
 function Footer() {

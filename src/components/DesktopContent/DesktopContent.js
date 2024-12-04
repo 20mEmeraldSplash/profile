@@ -3,10 +3,13 @@ import PropTypes from 'prop-types'
 import FolderIcon from '../FolderIcon/FolderIcon'
 import PDFWindow from '../Windows/PDFWindow/PDFWindow'
 import MacStyleWindow from '../Windows/MacStyleWindow/MacStyleWindow'
+import AppStoreComponent from '../AppStoreComponent/AppStoreComponent'
 
 import pdfIcon from '../../assets/icons/pdf-icon.png'
 import folderIcon from '../../assets/icons/folder-icon.png'
 import appStoreIcon from '../../assets/icons/appstore-icon.png'
+
+import easestarLogo from '../../assets/logos/easestar.png'
 
 import resumePdf from '../../assets/pdf/resume.pdf'
 
@@ -34,7 +37,7 @@ function DesktopContent() {
 
   // 打开Documents窗口
   const openDocumentsWindow = () => {
-    setOpenWindow('appStore') // 使用同一个MacStyleWindow
+    setOpenWindow('documents') // 使用同一个MacStyleWindow
     setDefaultMenu('documents') // 设置默认菜单为Documents
   }
 
@@ -70,8 +73,26 @@ function DesktopContent() {
       {openWindow === 'appStore' && (
         <MacStyleWindow onClose={closeWindow} defaultMenu={defaultMenu}>
           {/* 在此处可添加额外内容 */}
-          <div style={{ padding: '16px' }}>
-            <p>Explore your selected menu content here!</p>
+          <div className="macstyle-window-content-container">
+            <AppStoreComponent
+              title="EaseStar"
+              description="Hi everyone! I’d like to share an Expo React Native project I’ve been working on: EaseStar, a social app designed with a few unique features: 1. Public and Anonymous Posting: You can share ..."
+              image={easestarLogo}
+            />
+            <AppStoreComponent
+              title="EaseStar"
+              description="Hi everyone! I’d like to share an Expo React Native project I’ve been working on: EaseStar, a social app designed with a few unique features: 1. Public and Anonymous Posting: You can share ..."
+              image={easestarLogo}
+            />
+          </div>
+        </MacStyleWindow>
+      )}
+
+      {openWindow === 'documents' && (
+        <MacStyleWindow onClose={closeWindow} defaultMenu={defaultMenu}>
+          {/* 在此处可添加额外内容 */}
+          <div className="macstyle-window-content-container">
+            <p>HIII</p>
           </div>
         </MacStyleWindow>
       )}
