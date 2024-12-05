@@ -1,0 +1,76 @@
+.album-window-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.album-window {
+  display: flex;
+  flex-direction: row;
+  width: 70vw;
+  max-width: 900px;
+  height: 60vh;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.album-window.maximized {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  transform: none;
+}
+
+.album-window-sidebar {
+  width: 12rem;
+  min-width: 12rem;
+  background-color: #f5f5f7;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px;
+}
+
+.album-window-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0px 8px;
+}
+
+.album-window-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-size: cover;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.album-window-button.close {
+  background-color: #ff605c;
+}
+
+.album-window-button.minimize {
+  background-color: #ffbd44;
+}
+
+.album-window-button.maximize {
+  background-color: #00ca4e;
+}
+
+.album-window-content {
+  flex: 1;
+  max-width: 100%;
+  overflow-y: auto;
+}

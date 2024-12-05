@@ -1,41 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AppIcon from '../AppIcon/AppIcon'
+import AlbumWindow from '../Windows/AlbumWindow/AlbumWindow' // 引入 AlbumWindow
 import EaseStarLogo from '../../assets/logos/easestar.png'
 import EaseSoundLogo from '../../assets/logos/easesound.png'
+import ImageLogo from '../../assets/logos/image-icon.png'
 import './Footer.css'
 
 function Footer() {
-  // 动态宽度处理逻辑
-  const [isSmallWindow, setIsSmallWindow] = React.useState(false)
+  const [isAlbumWindowOpen, setIsAlbumWindowOpen] = useState(false)
+
+  const handleAlbumClick = () => {
+    setIsAlbumWindowOpen(true)
+  }
+
+  const closeAlbumWindow = () => {
+    setIsAlbumWindowOpen(false)
+  }
+
+  const [isSmallWindow, setIsSmallWindow] = useState(false)
 
   React.useEffect(() => {
     const handleResize = () => {
-      setIsSmallWindow(window.innerWidth < 768) // 小于 768px 视为小窗口
+      setIsSmallWindow(window.innerWidth < 768)
     }
 
-    handleResize() // 初始化判断
-    window.addEventListener('resize', handleResize) // 监听窗口大小变化
+    handleResize()
+    window.addEventListener('resize', handleResize)
 
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   return (
-    <footer className={`footer ${isSmallWindow ? 'small-window' : ''}`}>
-      <a
-        href="https://apps.apple.com/us/app/easestar/id6471627227"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <AppIcon src={EaseStarLogo} alt="EaseStar App Icon" />
-      </a>
-      <a
-        href="https://apps.apple.com/us/app/easesound/id6737292686"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <AppIcon src={EaseSoundLogo} alt="EaseStar App Icon" />
-      </a>
-    </footer>
+    <>
+      <footer className={`footer ${isSmallWindow ? 'small-window' : ''}`}>
+        <a
+          href="https://apps.apple.com/us/app/easestar/id6471627227"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <AppIcon src={EaseStarLogo} alt="EaseStar App Icon" />
+        </a>
+
+        <div onClick={handleAlbumClick} style={{ cursor: 'pointer' }}>
+          <AppIcon src={ImageLogo} alt="Album" />
+        </div>
+        <a
+          href="https://apps.apple.com/us/app/easesound/id6737292686"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <AppIcon src={EaseSoundLogo} alt="EaseSound App Icon" />
+        </a>
+      </footer>
+
+      {isAlbumWindowOpen && <AlbumWindow onClose={closeAlbumWindow} />}
+    </>
   )
 }
 
