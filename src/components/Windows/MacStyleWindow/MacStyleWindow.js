@@ -10,16 +10,89 @@ import appStoreIcon from '../../../assets/outline-icons/app-store-icon.png'
 import desktopIcon from '../../../assets/outline-icons/desktop-icon.png'
 import documentsIcon from '../../../assets/outline-icons/documents-icon.png'
 
+import easestarLogo from '../../../assets/logos/easestar.png'
+import easesoundLogo from '../../../assets/logos/easesound.png'
+
+import AppStoreComponent from '../../AppStoreComponent/AppStoreComponent'
+import PDFIcon from '../../PDFIcon/PDFIcon'
+import PDFWindow from '../PDFWindow/PDFWindow'
+
+import resumeIcon from '../../../assets/icons/resume-icon.png'
+import resumePdf from '../../../assets/pdf/resume.pdf'
+
 function MacStyleWindow({ onClose, defaultMenu, children }) {
   const [isMaximized, setIsMaximized] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState(defaultMenu)
+  const [currentContent, setCurrentContent] = useState(null)
+  const [openWindow, setOpenWindow] = useState(null)
+  const [currentPdf, setCurrentPdf] = useState(null)
 
   useEffect(() => {
     setSelectedMenu(defaultMenu) // Ensure the selected menu updates if the default changes
+    handleMenuClick(defaultMenu)
   }, [defaultMenu])
 
   const toggleMaximize = () => {
     setIsMaximized(!isMaximized)
+  }
+
+  const handleMenuClick = key => {
+    setSelectedMenu(key)
+    // 根据选中的菜单项设置当前内容
+    switch (key) {
+      case 'desktop':
+        setCurrentContent(
+          <div className="macstyle-window-document-container">
+            <PDFIcon
+              icon={resumeIcon}
+              label="Resume"
+              pdf={resumePdf}
+              onOpen={() => openPDFWindow(resumePdf)}
+            />
+          </div>
+        ) // 替换为实际的内容
+        break
+      case 'appStore':
+        setCurrentContent(
+          <div className="macstyle-window-content-container">
+            <AppStoreComponent
+              title="EaseStar"
+              description="An innovative social app designed for creators and privacy-conscious users. Share your artwork, photos, and thoughts freely, knowing your content is protected from unwanted downloads or screenshots."
+              image={easestarLogo}
+            />
+            <AppStoreComponent
+              title="EaseSound"
+              description="A unique app that transforms your Apple Watch into a personal soundboard. Upload your favorite MP3 files through your iPhone, and trigger sounds with a simple flick of your wrist—making every movement a part of your musical expression."
+              image={easesoundLogo}
+            />
+          </div>
+        )
+        break
+      case 'documents':
+        setCurrentContent(
+          <div className="macstyle-window-document-container">
+            <PDFIcon
+              icon={resumeIcon}
+              label="Resume"
+              pdf={resumePdf}
+              onOpen={() => openPDFWindow(resumePdf)}
+            />
+          </div>
+        )
+        break
+      default:
+        setCurrentContent(null)
+    }
+  }
+
+  const openPDFWindow = pdf => {
+    setCurrentPdf(pdf)
+    setOpenWindow('pdf')
+  }
+
+  const closePDFWindow = () => {
+    setCurrentPdf(null)
+    setOpenWindow(null)
   }
 
   const menuItems = [
@@ -57,7 +130,7 @@ function MacStyleWindow({ onClose, defaultMenu, children }) {
                 className={`mac-window-menu-item ${
                   selectedMenu === item.key ? 'active' : ''
                 }`}
-                onClick={() => setSelectedMenu(item.key)}
+                onClick={() => handleMenuClick(item.key)}
               >
                 <img
                   src={item.icon}
@@ -70,11 +143,25 @@ function MacStyleWindow({ onClose, defaultMenu, children }) {
           </div>
         </div>
         <div className="mac-window-content">
-          <h1>
-            {menuItems.find(item => item.key === selectedMenu)?.label ||
-              'Select a Menu'}
-          </h1>
-          {children}
+          <div className="mac-window-content-header">
+            <div className="mac-window-content-header-title">
+              {menuItems.find(item => item.key === selectedMenu)?.label ||
+                'Select a Menu'}
+            </div>
+          </div>
+
+          {currentContent}
+
+          {/* 条件渲染PDF窗口 */}
+          {openWindow === 'pdf' && currentPdf && (
+            <PDFWindow type="pdf" onClose={closePDFWindow}>
+              <iframe
+                src={currentPdf}
+                title="PDF Viewer"
+                style={{ width: '100%', height: '100%', border: 'none' }}
+              />
+            </PDFWindow>
+          )}
         </div>
       </div>
     </div>

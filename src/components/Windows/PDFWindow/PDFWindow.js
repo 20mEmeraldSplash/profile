@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import './PDFWindow.css'
-import '../../styles/variables.css'
+import '../../../styles/variables.css'
 
-import closeIcon from '../../assets/icons/close-icon.png'
-import maximizeIcon from '../../assets/icons/fullscreen-icon.png'
-import minimizeIcon from '../../assets/icons/minscreen-icon.png'
+import closeIcon from '../../../assets/icons/close-icon.png'
+import maximizeIcon from '../../../assets/icons/fullscreen-icon.png'
+import minimizeIcon from '../../../assets/icons/minscreen-icon.png'
 
 function PDFWindow({ type, onClose, children }) {
   const [isMaximized, setIsMaximized] = useState(false)

@@ -10,4 +10,6 @@
   --header-background-color: #f0f0f0; /* 标题栏背景颜色 */
 
   --menu-hover-background-color: #e0e0e0;
+  --app-container-background-color: #f7f7f8;
+  --app-content-background-color: #818181;
 }

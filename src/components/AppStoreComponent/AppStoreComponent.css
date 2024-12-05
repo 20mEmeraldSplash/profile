@@ -1,0 +1,68 @@
+/* Container styling */
+.appstore-component {
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  background-color: var(--app-container-background-color);
+}
+
+/* Header section */
+.appstore-header {
+  font-size: 12px;
+  font-weight: 300;
+  color: #888; /* Light gray text for header */
+  margin-bottom: 8px;
+}
+
+/* Body section */
+.appstore-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Text section */
+.appstore-text {
+  flex: 0.8;
+}
+
+.appstore-title {
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.appstore-description {
+  font-size: 14px;
+  color: var(
+    --app-content-background-color
+  ); /* Slightly darker gray for description */
+  margin: 8px 0 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* 限制显示3行 */
+  overflow: hidden;
+  text-overflow: ellipsis; /* 超出部分用...表示 */
+}
+
+/* Image section */
+.appstore-image {
+  width: 96px !important;
+  height: 96px !important;
+  border: 1px solid #ddd; /* Optional border around the image */
+  border-radius: 50%; /* Circle shape */
+  overflow: hidden; /* Ensure the image fits inside the circle */
+  margin-left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.appstore-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
+}

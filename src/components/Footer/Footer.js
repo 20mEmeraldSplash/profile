@@ -1,6 +1,7 @@
 import React from 'react'
 import AppIcon from '../AppIcon/AppIcon'
-import EaseStarLogo from '../../assets/logos/adaptive-icon.png'
+import EaseStarLogo from '../../assets/logos/easestar.png'
+import EaseSoundLogo from '../../assets/logos/easesound.png'
 import './Footer.css'
 
 function Footer() {
@@ -26,6 +27,13 @@ function Footer() {
         rel="noopener noreferrer"
       >
         <AppIcon src={EaseStarLogo} alt="EaseStar App Icon" />
+      </a>
+      <a
+        href="https://apps.apple.com/us/app/easesound/id6737292686"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <AppIcon src={EaseSoundLogo} alt="EaseStar App Icon" />
       </a>
     </footer>
   )
