@@ -14,11 +14,18 @@ import easestarLogo from '../../../assets/logos/easestar.png'
 import easesoundLogo from '../../../assets/logos/easesound.png'
 
 import AppStoreComponent from '../../AppStoreComponent/AppStoreComponent'
+import PDFIcon from '../../PDFIcon/PDFIcon'
+import PDFWindow from '../PDFWindow/PDFWindow'
+
+import resumeIcon from '../../../assets/icons/resume-icon.png'
+import resumePdf from '../../../assets/pdf/resume.pdf'
 
 function MacStyleWindow({ onClose, defaultMenu, children }) {
   const [isMaximized, setIsMaximized] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState(defaultMenu)
   const [currentContent, setCurrentContent] = useState(null)
+  const [openWindow, setOpenWindow] = useState(null)
+  const [currentPdf, setCurrentPdf] = useState(null)
 
   useEffect(() => {
     setSelectedMenu(defaultMenu) // Ensure the selected menu updates if the default changes
@@ -34,7 +41,16 @@ function MacStyleWindow({ onClose, defaultMenu, children }) {
     // 根据选中的菜单项设置当前内容
     switch (key) {
       case 'desktop':
-        setCurrentContent(<div>Desktop Content</div>) // 替换为实际的内容
+        setCurrentContent(
+          <div className="macstyle-window-document-container">
+            <PDFIcon
+              icon={resumeIcon}
+              label="Resume"
+              pdf={resumePdf}
+              onOpen={() => openPDFWindow(resumePdf)}
+            />
+          </div>
+        ) // 替换为实际的内容
         break
       case 'appStore':
         setCurrentContent(
@@ -50,14 +66,33 @@ function MacStyleWindow({ onClose, defaultMenu, children }) {
               image={easesoundLogo}
             />
           </div>
-        ) // 替换为实际的内容
+        )
         break
       case 'documents':
-        setCurrentContent(<div>Documents Content</div>) // 替换为实际的内容
+        setCurrentContent(
+          <div className="macstyle-window-document-container">
+            <PDFIcon
+              icon={resumeIcon}
+              label="Resume"
+              pdf={resumePdf}
+              onOpen={() => openPDFWindow(resumePdf)}
+            />
+          </div>
+        )
         break
       default:
         setCurrentContent(null)
     }
+  }
+
+  const openPDFWindow = pdf => {
+    setCurrentPdf(pdf)
+    setOpenWindow('pdf')
+  }
+
+  const closePDFWindow = () => {
+    setCurrentPdf(null)
+    setOpenWindow(null)
   }
 
   const menuItems = [
@@ -116,6 +151,17 @@ function MacStyleWindow({ onClose, defaultMenu, children }) {
           </div>
 
           {currentContent}
+
+          {/* 条件渲染PDF窗口 */}
+          {openWindow === 'pdf' && currentPdf && (
+            <PDFWindow type="pdf" onClose={closePDFWindow}>
+              <iframe
+                src={currentPdf}
+                title="PDF Viewer"
+                style={{ width: '100%', height: '100%', border: 'none' }}
+              />
+            </PDFWindow>
+          )}
         </div>
       </div>
     </div>
