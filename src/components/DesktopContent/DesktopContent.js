@@ -10,6 +10,7 @@ import folderIcon from '../../assets/icons/folder-icon.png'
 import appStoreIcon from '../../assets/icons/appstore-icon.png'
 
 import easestarLogo from '../../assets/logos/easestar.png'
+import easesoundLogo from '../../assets/logos/easesound.png'
 
 import resumePdf from '../../assets/pdf/resume.pdf'
 
@@ -72,17 +73,16 @@ function DesktopContent() {
       {/* 条件渲染MacStyleWindow */}
       {openWindow === 'appStore' && (
         <MacStyleWindow onClose={closeWindow} defaultMenu={defaultMenu}>
-          {/* 在此处可添加额外内容 */}
           <div className="macstyle-window-content-container">
             <AppStoreComponent
               title="EaseStar"
-              description="Hi everyone! I’d like to share an Expo React Native project I’ve been working on: EaseStar, a social app designed with a few unique features: 1. Public and Anonymous Posting: You can share ..."
+              description="An innovative social app designed for creators and privacy-conscious users. Share your artwork, photos, and thoughts freely, knowing your content is protected from unwanted downloads or screenshots."
               image={easestarLogo}
             />
             <AppStoreComponent
-              title="EaseStar"
-              description="Hi everyone! I’d like to share an Expo React Native project I’ve been working on: EaseStar, a social app designed with a few unique features: 1. Public and Anonymous Posting: You can share ..."
-              image={easestarLogo}
+              title="EaseSound"
+              description="A unique app that transforms your Apple Watch into a personal soundboard. Upload your favorite MP3 files through your iPhone, and trigger sounds with a simple flick of your wrist—making every movement a part of your musical expression."
+              image={easesoundLogo}
             />
           </div>
         </MacStyleWindow>

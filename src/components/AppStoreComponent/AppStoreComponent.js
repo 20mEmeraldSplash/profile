@@ -8,7 +8,7 @@ function AppStoreComponent({ title, description, image }) {
       <div className="appstore-body">
         <div className="appstore-text">
           <div className="appstore-header">YICHEN FAVORITES</div>
-          <h1 className="appstore-title">{title}</h1>
+          <div className="appstore-title">{title}</div>
           <p className="appstore-description">{description}</p>
         </div>
         <div className="appstore-image">
