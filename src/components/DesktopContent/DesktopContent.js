@@ -72,29 +72,17 @@ function DesktopContent() {
 
       {/* 条件渲染MacStyleWindow */}
       {openWindow === 'appStore' && (
-        <MacStyleWindow onClose={closeWindow} defaultMenu={defaultMenu}>
-          <div className="macstyle-window-content-container">
-            <AppStoreComponent
-              title="EaseStar"
-              description="An innovative social app designed for creators and privacy-conscious users. Share your artwork, photos, and thoughts freely, knowing your content is protected from unwanted downloads or screenshots."
-              image={easestarLogo}
-            />
-            <AppStoreComponent
-              title="EaseSound"
-              description="A unique app that transforms your Apple Watch into a personal soundboard. Upload your favorite MP3 files through your iPhone, and trigger sounds with a simple flick of your wrist—making every movement a part of your musical expression."
-              image={easesoundLogo}
-            />
-          </div>
-        </MacStyleWindow>
+        <MacStyleWindow
+          onClose={closeWindow}
+          defaultMenu={defaultMenu}
+        ></MacStyleWindow>
       )}
 
       {openWindow === 'documents' && (
-        <MacStyleWindow onClose={closeWindow} defaultMenu={defaultMenu}>
-          {/* 在此处可添加额外内容 */}
-          <div className="macstyle-window-content-container">
-            <p>HIII</p>
-          </div>
-        </MacStyleWindow>
+        <MacStyleWindow
+          onClose={closeWindow}
+          defaultMenu={defaultMenu}
+        ></MacStyleWindow>
       )}
     </div>
   )

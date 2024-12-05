@@ -10,16 +10,54 @@ import appStoreIcon from '../../../assets/outline-icons/app-store-icon.png'
 import desktopIcon from '../../../assets/outline-icons/desktop-icon.png'
 import documentsIcon from '../../../assets/outline-icons/documents-icon.png'
 
+import easestarLogo from '../../../assets/logos/easestar.png'
+import easesoundLogo from '../../../assets/logos/easesound.png'
+
+import AppStoreComponent from '../../AppStoreComponent/AppStoreComponent'
+
 function MacStyleWindow({ onClose, defaultMenu, children }) {
   const [isMaximized, setIsMaximized] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState(defaultMenu)
+  const [currentContent, setCurrentContent] = useState(null)
 
   useEffect(() => {
     setSelectedMenu(defaultMenu) // Ensure the selected menu updates if the default changes
+    handleMenuClick(defaultMenu)
   }, [defaultMenu])
 
   const toggleMaximize = () => {
     setIsMaximized(!isMaximized)
+  }
+
+  const handleMenuClick = key => {
+    setSelectedMenu(key)
+    // 根据选中的菜单项设置当前内容
+    switch (key) {
+      case 'desktop':
+        setCurrentContent(<div>Desktop Content</div>) // 替换为实际的内容
+        break
+      case 'appStore':
+        setCurrentContent(
+          <div className="macstyle-window-content-container">
+            <AppStoreComponent
+              title="EaseStar"
+              description="An innovative social app designed for creators and privacy-conscious users. Share your artwork, photos, and thoughts freely, knowing your content is protected from unwanted downloads or screenshots."
+              image={easestarLogo}
+            />
+            <AppStoreComponent
+              title="EaseSound"
+              description="A unique app that transforms your Apple Watch into a personal soundboard. Upload your favorite MP3 files through your iPhone, and trigger sounds with a simple flick of your wrist—making every movement a part of your musical expression."
+              image={easesoundLogo}
+            />
+          </div>
+        ) // 替换为实际的内容
+        break
+      case 'documents':
+        setCurrentContent(<div>Documents Content</div>) // 替换为实际的内容
+        break
+      default:
+        setCurrentContent(null)
+    }
   }
 
   const menuItems = [
@@ -57,7 +95,7 @@ function MacStyleWindow({ onClose, defaultMenu, children }) {
                 className={`mac-window-menu-item ${
                   selectedMenu === item.key ? 'active' : ''
                 }`}
-                onClick={() => setSelectedMenu(item.key)}
+                onClick={() => handleMenuClick(item.key)}
               >
                 <img
                   src={item.icon}
@@ -77,7 +115,7 @@ function MacStyleWindow({ onClose, defaultMenu, children }) {
             </div>
           </div>
 
-          {children}
+          {currentContent}
         </div>
       </div>
     </div>

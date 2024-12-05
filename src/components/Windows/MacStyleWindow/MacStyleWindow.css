@@ -128,3 +128,11 @@
   width: 18px;
   height: 18px;
 }
+
+.macstyle-window-content-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  flex: 1;
+  row-gap: 1rem;
+}
