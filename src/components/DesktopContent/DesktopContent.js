@@ -5,7 +5,7 @@ import PDFWindow from '../Windows/PDFWindow/PDFWindow'
 import MacStyleWindow from '../Windows/MacStyleWindow/MacStyleWindow'
 import AppStoreComponent from '../AppStoreComponent/AppStoreComponent'
 
-import pdfIcon from '../../assets/icons/pdf-icon.png'
+import resumeIcon from '../../assets/icons/resume-icon.png'
 import folderIcon from '../../assets/icons/folder-icon.png'
 import appStoreIcon from '../../assets/icons/appstore-icon.png'
 
@@ -21,7 +21,7 @@ function DesktopContent() {
   const [defaultMenu, setDefaultMenu] = useState('appStore') // 默认菜单项
 
   // 打开PDF窗口
-  const openPdfWindow = () => {
+  const openResumeWindow = () => {
     setOpenWindow('pdf')
   }
 
@@ -45,8 +45,8 @@ function DesktopContent() {
   return (
     <div className="desktop-content-container">
       {/* PDF 图标 */}
-      <div onClick={openPdfWindow} style={{ cursor: 'pointer' }}>
-        <FolderIcon imageSrc={pdfIcon} label="Resume" />
+      <div onClick={openResumeWindow} style={{ cursor: 'pointer' }}>
+        <FolderIcon imageSrc={resumeIcon} label="Resume" />
       </div>
 
       {/* App Store 图标 */}
