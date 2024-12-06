@@ -26,10 +26,34 @@ function AlbumWindow({ onClose }) {
     { key: 'map', label: 'Map' },
   ]
 
+  // List of images for the Library
+  const libraryImages = [
+    backgroundImage1,
+    backgroundImage2,
+    backgroundImage1,
+    backgroundImage2,
+    backgroundImage1,
+    backgroundImage2,
+    backgroundImage1,
+    backgroundImage2,
+    backgroundImage1,
+    backgroundImage2,
+  ]
+
+  const renderLibraryContent = () => (
+    <div className="album-window-library-grid">
+      {libraryImages.map((image, index) => (
+        <div key={index} className="album-window-library-item">
+          <img src={image} alt={`Library ${index}`} />
+        </div>
+      ))}
+    </div>
+  )
+
   const renderContent = () => {
     switch (selectedMenu) {
       case 'library':
-        return <div>Library Content</div>
+        return renderLibraryContent()
       case 'map':
         return <div>Map Content</div>
       default:

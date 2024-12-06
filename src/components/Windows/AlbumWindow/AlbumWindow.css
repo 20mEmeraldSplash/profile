@@ -14,8 +14,8 @@
 .album-window {
   display: flex;
   flex-direction: row;
-  width: 70vw;
-  max-width: 900px;
+  width: 80vw;
+  max-width: 1200px;
   height: 60vh;
   background-color: white;
   border-radius: 12px;
@@ -114,4 +114,24 @@
 .album-window-content-header-title {
   font-size: 14px;
   font-weight: bolder;
+}
+
+.album-window-library-grid {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 images per row */
+  gap: 10px; /* Space between images */
+  align-items: center;
+}
+
+.album-window-library-item {
+  width: 100%;
+  aspect-ratio: 1.5;
+  overflow: hidden;
+}
+
+.album-window-library-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
