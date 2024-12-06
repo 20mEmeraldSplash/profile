@@ -41,12 +41,14 @@ function AlbumWindow({ onClose }) {
   ]
 
   const renderLibraryContent = () => (
-    <div className="album-window-library-grid">
-      {libraryImages.map((image, index) => (
-        <div key={index} className="album-window-library-item">
-          <img src={image} alt={`Library ${index}`} />
-        </div>
-      ))}
+    <div className="album-window-library-content">
+      <div className="album-window-library-grid">
+        {libraryImages.map((image, index) => (
+          <div key={index} className="album-window-library-item">
+            <img src={image} alt={`Library ${index}`} />
+          </div>
+        ))}
+      </div>
     </div>
   )
 
