@@ -12,6 +12,7 @@ import backgroundImage2 from '../../../assets/background/background-2.jpg'
 function AlbumWindow({ onClose }) {
   const [isMaximized, setIsMaximized] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState('library')
+  const [viewImage, setViewImage] = useState(null)
 
   const toggleMaximize = () => {
     setIsMaximized(!isMaximized)
@@ -19,6 +20,14 @@ function AlbumWindow({ onClose }) {
 
   const handleMenuClick = key => {
     setSelectedMenu(key)
+  }
+
+  const handleImageClick = image => {
+    setViewImage(image)
+  }
+
+  const handleExitImageView = () => {
+    setViewImage(null)
   }
 
   const menuItems = [
@@ -44,7 +53,11 @@ function AlbumWindow({ onClose }) {
     <div className="album-window-library-content">
       <div className="album-window-library-grid">
         {libraryImages.map((image, index) => (
-          <div key={index} className="album-window-library-item">
+          <div
+            key={index}
+            className="album-window-library-item"
+            onClick={() => handleImageClick(image)}
+          >
             <img src={image} alt={`Library ${index}`} />
           </div>
         ))}
@@ -53,6 +66,13 @@ function AlbumWindow({ onClose }) {
   )
 
   const renderContent = () => {
+    if (viewImage) {
+      return (
+        <div className="album-window-library-content single-image-container">
+          <img src={viewImage} alt="Full view" className="fullscreen-image" />
+        </div>
+      )
+    }
     switch (selectedMenu) {
       case 'library':
         return renderLibraryContent()
@@ -100,12 +120,24 @@ function AlbumWindow({ onClose }) {
           </div>
         </div>
         <div className="album-window-content">
-          <div className="album-window-content-header">
-            <div className="album-window-content-header-title">
-              {menuItems.find(item => item.key === selectedMenu)?.label ||
-                'Select a Menu'}
+          {viewImage ? (
+            <div className="album-window-content-header-view-image">
+              <button
+                className="exit-fullscreen-button"
+                onClick={handleExitImageView}
+              >
+                Exit
+              </button>
             </div>
-          </div>
+          ) : (
+            <div className="album-window-content-header">
+              <div className="album-window-content-header-title">
+                {menuItems.find(item => item.key === selectedMenu)?.label ||
+                  'Select a Menu'}
+              </div>
+            </div>
+          )}
+
           {renderContent()}
         </div>
       </div>
