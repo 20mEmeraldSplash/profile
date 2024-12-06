@@ -6,6 +6,9 @@ import closeIcon from '../../../assets/icons/close-icon.png'
 import maximizeIcon from '../../../assets/icons/fullscreen-icon.png'
 import minimizeIcon from '../../../assets/icons/minscreen-icon.png'
 
+import backgroundImage1 from '../../../assets/background/background-1.jpg'
+import backgroundImage2 from '../../../assets/background/background-2.jpg'
+
 function AlbumWindow({ onClose }) {
   const [isMaximized, setIsMaximized] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState('library')
