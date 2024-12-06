@@ -70,7 +70,15 @@ function AlbumWindow({ onClose }) {
             ))}
           </div>
         </div>
-        <div className="album-window-content">{renderContent()}</div>
+        <div className="album-window-content">
+          <div className="album-window-content-header">
+            <div className="album-window-content-header-title">
+              {menuItems.find(item => item.key === selectedMenu)?.label ||
+                'Select a Menu'}
+            </div>
+          </div>
+          {renderContent()}
+        </div>
       </div>
     </div>
   )

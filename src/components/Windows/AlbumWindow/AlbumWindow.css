@@ -74,3 +74,44 @@
   max-width: 100%;
   overflow-y: auto;
 }
+
+/* 添加菜单样式 */
+.album-window-menu {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  width: 100%;
+}
+
+.album-window-menu-item {
+  display: flex;
+  flex-direction: row;
+  column-gap: 4px;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+  width: 100%;
+  text-align: left;
+  align-items: center;
+}
+
+.album-window-menu-item.active {
+  background-color: var(--menu-hover-background-color);
+  border-radius: 8px;
+}
+
+.album-window-content-header {
+  height: 2.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--header-background-color);
+}
+
+.album-window-content-header-title {
+  font-size: 14px;
+  font-weight: bolder;
+}
