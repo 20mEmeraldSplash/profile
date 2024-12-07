@@ -42,13 +42,13 @@
 
 /* 窗口标题栏 */
 .window-header {
-  background-color: var(--header-background-color); /* 使用颜色变量 */
+  background-color: var(--light-gray); /* 使用颜色变量 */
   padding: 8px 16px;
   display: flex;
   align-items: center;
   font-size: 16px;
   font-weight: bold;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--light-gray);
 }
 
 /* 左侧按钮容器 */

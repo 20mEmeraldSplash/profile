@@ -40,7 +40,7 @@ const styles = {
   header: {
     width: '100%',
     height: 'var(--header-height)',
-    backgroundColor: 'var(--header-bg-color)',
+    backgroundColor: 'var(--super-light-gray)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between', // 左右对齐
@@ -50,12 +50,12 @@ const styles = {
   title: {
     margin: 0,
     fontSize: '16px',
-    color: 'var(--header-text-color)',
+    color: 'var(--black)',
     fontWeight: 'normal',
   },
   time: {
     fontSize: '14px',
-    color: 'var(--header-text-color)',
+    color: 'var(--black)',
     fontWeight: 'lighter',
   },
 }

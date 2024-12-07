@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons'
+import {
+  faChevronLeft,
+  faArrowUpFromBracket,
+} from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
 import './AlbumWindow.css'
 
@@ -21,6 +23,10 @@ function AlbumWindow({ onClose, onChangeBackground }) {
   const [isMaximized, setIsMaximized] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState('library')
   const [viewImage, setViewImage] = useState(null)
+  const [isPopupVisible, setIsPopupVisible] = useState(false)
+  const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 })
+
+  const buttonRef = useRef(null) // 用于获取按钮的位置
 
   const toggleMaximize = () => {
     setIsMaximized(!isMaximized)
@@ -42,7 +48,35 @@ function AlbumWindow({ onClose, onChangeBackground }) {
     if (viewImage && onChangeBackground) {
       onChangeBackground(viewImage)
     }
+    setIsPopupVisible(false) // 关闭弹窗
   }
+
+  const handlePopupToggle = () => {
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect()
+      setPopupPosition({
+        top: rect.bottom + window.scrollY + 8, // 让弹窗出现在按钮正下方，8px 间距
+        left: rect.left + rect.width / 2 + window.scrollX, // 弹窗居中对齐按钮
+      })
+    }
+    setIsPopupVisible(!isPopupVisible)
+  }
+
+  const handleClickOutside = event => {
+    if (buttonRef.current && !buttonRef.current.contains(event.target)) {
+      setIsPopupVisible(false) // 点击外部区域时关闭弹窗
+    }
+  }
+
+  // 在组件挂载时添加事件监听器
+  React.useEffect(() => {
+    if (isPopupVisible) {
+      window.addEventListener('click', handleClickOutside)
+    }
+    return () => {
+      window.removeEventListener('click', handleClickOutside)
+    }
+  }, [isPopupVisible])
 
   const menuItems = [
     { key: 'library', label: 'Library' },
@@ -140,10 +174,25 @@ function AlbumWindow({ onClose, onChangeBackground }) {
               </button>
               <button
                 className="exit-fullscreen-button"
-                onClick={handleSetBackground}
+                onClick={handlePopupToggle}
+                ref={buttonRef} // 绑定按钮的 ref
               >
                 <FontAwesomeIcon icon={faArrowUpFromBracket} />
               </button>
+              {isPopupVisible && (
+                <div
+                  className="popup"
+                  style={{
+                    position: 'absolute',
+                    top: `${popupPosition.top}px`,
+                    left: `${popupPosition.left}px`,
+                    transform: 'translateX(-50%)', // 水平居中对齐按钮
+                    zIndex: 1000,
+                  }}
+                >
+                  <button onClick={handleSetBackground}>Set Wallpaper</button>
+                </div>
+              )}
             </div>
           ) : (
             <div className="album-window-content-header">
