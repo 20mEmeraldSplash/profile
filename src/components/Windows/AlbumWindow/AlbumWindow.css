@@ -191,12 +191,14 @@
 }
 
 .popup button {
+  display: flex;
   padding: 5px 10px;
   font-size: 12px;
   cursor: pointer;
   border: none;
   width: 100%;
   text-align: left;
+  align-items: center;
   background-color: white;
   color: var(--dark-gray);
 }
