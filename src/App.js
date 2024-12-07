@@ -8,7 +8,7 @@ import './styles/global.css'
 function App() {
   return (
     <div className="app">
-      <Header title="Yichen Site" />
+      <Header title="EaseSite" />
       <DesktopContent />
       <Footer />
     </div>

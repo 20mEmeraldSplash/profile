@@ -165,12 +165,9 @@
 }
 
 .exit-fullscreen-button {
-  background-color: white;
   border: none;
   left: 0;
-  border-radius: 4px;
-  padding: 8px 16px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 16px;
+  color: var(--app-content-background-color);
 }

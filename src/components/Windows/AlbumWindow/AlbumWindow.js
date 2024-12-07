@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
 import './AlbumWindow.css'
 
@@ -126,7 +128,7 @@ function AlbumWindow({ onClose }) {
                 className="exit-fullscreen-button"
                 onClick={handleExitImageView}
               >
-                Exit
+                <FontAwesomeIcon icon={faChevronLeft} />
               </button>
             </div>
           ) : (
