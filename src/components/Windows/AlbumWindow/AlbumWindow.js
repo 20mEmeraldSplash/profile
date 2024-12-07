@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
 import './AlbumWindow.css'
 
@@ -129,6 +130,9 @@ function AlbumWindow({ onClose }) {
                 onClick={handleExitImageView}
               >
                 <FontAwesomeIcon icon={faChevronLeft} />
+              </button>
+              <button className="exit-fullscreen-button" onClick={() => {}}>
+                <FontAwesomeIcon icon={faArrowUpFromBracket} />
               </button>
             </div>
           ) : (
