@@ -11,8 +11,13 @@ import minimizeIcon from '../../../assets/icons/minscreen-icon.png'
 
 import backgroundImage1 from '../../../assets/background/background-1.jpg'
 import backgroundImage2 from '../../../assets/background/background-2.jpg'
+import backgroundImage3 from '../../../assets/background/background-3.jpg'
+import backgroundImage4 from '../../../assets/background/background-4.jpg'
+import backgroundImage5 from '../../../assets/background/background-5.jpg'
+import backgroundImage6 from '../../../assets/background/background-6.png'
+import backgroundImage7 from '../../../assets/background/background-7.png'
 
-function AlbumWindow({ onClose }) {
+function AlbumWindow({ onClose, onChangeBackground }) {
   const [isMaximized, setIsMaximized] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState('library')
   const [viewImage, setViewImage] = useState(null)
@@ -33,23 +38,25 @@ function AlbumWindow({ onClose }) {
     setViewImage(null)
   }
 
+  const handleSetBackground = () => {
+    if (viewImage && onChangeBackground) {
+      onChangeBackground(viewImage)
+    }
+  }
+
   const menuItems = [
     { key: 'library', label: 'Library' },
     { key: 'map', label: 'Map' },
   ]
 
-  // List of images for the Library
   const libraryImages = [
     backgroundImage1,
     backgroundImage2,
-    backgroundImage1,
-    backgroundImage2,
-    backgroundImage1,
-    backgroundImage2,
-    backgroundImage1,
-    backgroundImage2,
-    backgroundImage1,
-    backgroundImage2,
+    backgroundImage3,
+    backgroundImage4,
+    backgroundImage5,
+    backgroundImage6,
+    backgroundImage7,
   ]
 
   const renderLibraryContent = () => (
@@ -131,7 +138,10 @@ function AlbumWindow({ onClose }) {
               >
                 <FontAwesomeIcon icon={faChevronLeft} />
               </button>
-              <button className="exit-fullscreen-button" onClick={() => {}}>
+              <button
+                className="exit-fullscreen-button"
+                onClick={handleSetBackground}
+              >
                 <FontAwesomeIcon icon={faArrowUpFromBracket} />
               </button>
             </div>
@@ -153,6 +163,7 @@ function AlbumWindow({ onClose }) {
 
 AlbumWindow.propTypes = {
   onClose: PropTypes.func.isRequired,
+  onChangeBackground: PropTypes.func,
 }
 
 export default AlbumWindow
