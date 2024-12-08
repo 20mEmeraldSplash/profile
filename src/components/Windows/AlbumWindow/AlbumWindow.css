@@ -207,3 +207,37 @@
   background-color: var(--light-gray); /* hover 时的背景颜色 */
   border-radius: 4px;
 }
+
+.menu-section {
+  margin-bottom: 20px;
+}
+
+.menu-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #888; /* 灰色标题 */
+  margin-bottom: 8px;
+  padding-left: 10px; /* 留一些间距 */
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.album-window-menu-item {
+  font-size: 16px;
+  padding: 8px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.album-window-menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.album-window-menu-item.active {
+  background-color: #d0d0d0;
+  font-weight: bold;
+}

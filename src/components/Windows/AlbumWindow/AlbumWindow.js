@@ -88,8 +88,20 @@ function AlbumWindow({ onClose, onChangeBackground }) {
   }, [isPopupVisible])
 
   const menuItems = [
-    { key: 'library', label: 'Library' },
-    { key: 'map', label: 'Map' },
+    {
+      title: 'Library',
+      items: [
+        { key: 'wallpaper', label: 'Wallpaper' },
+        { key: 'avatar', label: 'Avatar' },
+      ],
+    },
+    {
+      title: 'My Artwork',
+      items: [
+        { key: '2023', label: '2023' },
+        { key: '2024', label: '2024' },
+      ],
+    },
   ]
 
   const libraryImages = [
@@ -119,6 +131,29 @@ function AlbumWindow({ onClose, onChangeBackground }) {
           </div>
         ))}
       </div>
+    </div>
+  )
+
+  const renderMenu = () => (
+    <div className="album-window-menu">
+      {menuItems.map((menu, index) => (
+        <div key={index} className="menu-section">
+          <div className="menu-title">{menu.title}</div>
+          <div className="menu-items">
+            {menu.items.map(item => (
+              <div
+                key={item.key}
+                className={`album-window-menu-item ${
+                  selectedMenu === item.key ? 'active' : ''
+                }`}
+                onClick={() => handleMenuClick(item.key)}
+              >
+                {item.label}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   )
 
@@ -161,20 +196,7 @@ function AlbumWindow({ onClose, onChangeBackground }) {
               }}
             ></button>
           </div>
-
-          <div className="album-window-menu">
-            {menuItems.map(item => (
-              <div
-                key={item.key}
-                className={`album-window-menu-item ${
-                  selectedMenu === item.key ? 'active' : ''
-                }`}
-                onClick={() => handleMenuClick(item.key)}
-              >
-                {item.label}
-              </div>
-            ))}
-          </div>
+          {renderMenu()}
         </div>
         <div className="album-window-content">
           {viewImage ? (
