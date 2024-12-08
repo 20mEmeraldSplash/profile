@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0f0f0; /* 默认背景色 */
+  background-color: var(--light-gray); /* 默认背景色 */
   border-radius: 8px; /* 圆角 */
   overflow: hidden; /* 确保图片不会溢出 */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 轻微的阴影 */

@@ -6,7 +6,7 @@ import EaseSoundLogo from '../../assets/logos/easesound.png'
 import ImageLogo from '../../assets/logos/image-icon.png'
 import './Footer.css'
 
-function Footer() {
+function Footer({ onChangeBackground }) {
   const [isAlbumWindowOpen, setIsAlbumWindowOpen] = useState(false)
 
   const handleAlbumClick = () => {
@@ -53,7 +53,12 @@ function Footer() {
         </a>
       </footer>
 
-      {isAlbumWindowOpen && <AlbumWindow onClose={closeAlbumWindow} />}
+      {isAlbumWindowOpen && (
+        <AlbumWindow
+          onClose={closeAlbumWindow}
+          onChangeBackground={onChangeBackground}
+        />
+      )}
     </>
   )
 }

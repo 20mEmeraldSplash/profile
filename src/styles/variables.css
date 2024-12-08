@@ -1,15 +1,17 @@
 /* src/styles/variables.css */
 
 :root {
-  --header-bg-color: rgba(240, 240, 240, 0.75); /* 头部背景颜色 */
-  --header-text-color: #333; /* 头部文字颜色 */
-  --header-height: 32px; /* 头部高度 */
+  --white: #ffffff;
+  --black: #333;
+  --header-height: 32px;
 
-  --close-button-color: #ff5e57; /* 关闭按钮颜色 */
-  --maximize-button-color: #27c840; /* 放大按钮颜色 */
-  --header-background-color: #f0f0f0; /* 标题栏背景颜色 */
+  --close-button-color: #ff5e57;
+  --minimize-button-color: #ffbd44;
+  --maximize-button-color: #27c840;
 
-  --menu-hover-background-color: #e0e0e0;
-  --app-container-background-color: #f7f7f8;
-  --app-content-background-color: #818181;
+  --super-light-gray: #f7f7f8;
+  --light-gray: #f0f0f0;
+  --gray: #e0e0e0;
+  --middle-dark-gray: #888;
+  --dark-gray: #818181;
 }

@@ -34,7 +34,7 @@
 .album-window-sidebar {
   width: 12rem;
   min-width: 12rem;
-  background-color: #f5f5f7;
+  background-color: var(--super-light-gray);
   display: flex;
   flex-direction: column;
   padding: 16px 8px;
@@ -58,15 +58,15 @@
 }
 
 .album-window-button.close {
-  background-color: #ff605c;
+  background-color: var(--close-button-color);
 }
 
 .album-window-button.minimize {
-  background-color: #ffbd44;
+  background-color: var(--minimize-button-color);
 }
 
 .album-window-button.maximize {
-  background-color: #00ca4e;
+  background-color: var(--maximize-button-color);
 }
 
 .album-window-content {
@@ -93,14 +93,14 @@
   padding: 8px;
   cursor: pointer;
   font-size: 14px;
-  color: #555;
+  color: var(--black);
   width: 100%;
   text-align: left;
   align-items: center;
 }
 
 .album-window-menu-item.active {
-  background-color: var(--menu-hover-background-color);
+  background-color: var(--gray);
   border-radius: 8px;
 }
 
@@ -110,17 +110,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--header-background-color);
+  background-color: var(--light-gray);
 }
 
 .album-window-content-header-view-image {
   height: 2.5rem;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding-left: 1rem;
-  background-color: var(--header-background-color);
+  padding-right: 1rem;
+  background-color: var(--light-gray);
 }
 
 .album-window-content-header-title {
@@ -169,5 +170,40 @@
   left: 0;
   cursor: pointer;
   font-size: 16px;
-  color: var(--app-content-background-color);
+  color: var(--dark-gray);
+}
+
+.popup {
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  background-color: white;
+  border: 1px solid var(--gray);
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.popup p {
+  font-size: 14px;
+}
+
+.popup button {
+  display: flex;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  text-align: left;
+  align-items: center;
+  background-color: white;
+  color: var(--dark-gray);
+}
+
+.popup button:hover {
+  background-color: var(--light-gray); /* hover 时的背景颜色 */
+  border-radius: 4px;
 }

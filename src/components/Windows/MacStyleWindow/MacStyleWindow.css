@@ -19,7 +19,7 @@
   width: 70vw;
   max-width: 900px;
   height: 60vh;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -37,11 +37,11 @@
 .mac-window-sidebar {
   width: 12rem;
   min-width: 12rem;
-  background-color: #f5f5f7;
+  background-color: var(--super-light-gray);
   display: flex;
   flex-direction: column;
   padding: 16px 8px;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid var(--light-gray);
 }
 
 /* Buttons */
@@ -63,15 +63,15 @@
 }
 
 .mac-window-button.close {
-  background-color: #ff605c;
+  background-color: var(--close-button-color);
 }
 
 .mac-window-button.minimize {
-  background-color: #ffbd44;
+  background-color: var(--minimize-button-color);
 }
 
 .mac-window-button.maximize {
-  background-color: #00ca4e;
+  background-color: var(--maximize-button-color);
 }
 
 /* Right-side placeholder */
@@ -91,7 +91,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--header-background-color);
+  background-color: var(--light-gray);
 }
 
 .mac-window-content-header-title {
@@ -113,14 +113,14 @@
   padding: 8px;
   cursor: pointer;
   font-size: 14px;
-  color: #555;
+  color: var(--black);
   width: 100%;
   text-align: left;
   align-items: center;
 }
 
 .mac-window-menu-item.active {
-  background-color: var(--menu-hover-background-color);
+  background-color: var(--gray);
   border-radius: 8px;
 }
 
