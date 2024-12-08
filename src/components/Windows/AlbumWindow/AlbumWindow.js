@@ -20,6 +20,14 @@ import backgroundImage5 from '../../../assets/background/background-5.jpg'
 import backgroundImage6 from '../../../assets/background/background-6.png'
 import backgroundImage7 from '../../../assets/background/background-7.png'
 
+import thumbnailBackgroundImage1 from '../../../assets/background/thumbnail/background-1.jpg'
+import thumbnailBackgroundImage2 from '../../../assets/background/thumbnail/background-2.jpg'
+import thumbnailBackgroundImage3 from '../../../assets/background/thumbnail/background-3.jpg'
+import thumbnailBackgroundImage4 from '../../../assets/background/thumbnail/background-4.jpg'
+import thumbnailBackgroundImage5 from '../../../assets/background/thumbnail/background-5.jpg'
+import thumbnailBackgroundImage6 from '../../../assets/background/thumbnail/background-6.png'
+import thumbnailBackgroundImage7 from '../../../assets/background/thumbnail/background-7.png'
+
 function AlbumWindow({ onClose, onChangeBackground }) {
   const [isMaximized, setIsMaximized] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState('library')
@@ -85,13 +93,13 @@ function AlbumWindow({ onClose, onChangeBackground }) {
   ]
 
   const libraryImages = [
-    backgroundImage1,
-    backgroundImage2,
-    backgroundImage3,
-    backgroundImage4,
-    backgroundImage5,
-    backgroundImage6,
-    backgroundImage7,
+    { thumbnail: thumbnailBackgroundImage1, original: backgroundImage1 },
+    { thumbnail: thumbnailBackgroundImage2, original: backgroundImage2 },
+    { thumbnail: thumbnailBackgroundImage3, original: backgroundImage3 },
+    { thumbnail: thumbnailBackgroundImage4, original: backgroundImage4 },
+    { thumbnail: thumbnailBackgroundImage5, original: backgroundImage5 },
+    { thumbnail: thumbnailBackgroundImage6, original: backgroundImage6 },
+    { thumbnail: thumbnailBackgroundImage7, original: backgroundImage7 },
   ]
 
   const renderLibraryContent = () => (
@@ -101,9 +109,13 @@ function AlbumWindow({ onClose, onChangeBackground }) {
           <div
             key={index}
             className="album-window-library-item"
-            onClick={() => handleImageClick(image)}
+            onClick={() => handleImageClick(image.original)}
           >
-            <img src={image} alt={`Library ${index}`} />
+            <img
+              src={image.thumbnail}
+              alt={`Library ${index}`}
+              loading="lazy"
+            />
           </div>
         ))}
       </div>
