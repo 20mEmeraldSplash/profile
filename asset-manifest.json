@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/profile/static/css/main.2f360dbf.css",
-    "main.js": "/profile/static/js/main.a38bba08.js",
-    "static/media/background-2.jpg": "/profile/static/media/background-2.8779281f00088c872484.jpg",
-    "static/media/background-1.jpg": "/profile/static/media/background-1.fff5f1e2507a7a513998.jpg",
-    "static/media/background-6.png": "/profile/static/media/background-6.471bf8e8e7d2c239499e.png",
-    "static/media/background-7.png": "/profile/static/media/background-7.84dc938c29715e522fe2.png",
-    "static/media/background-3.jpg": "/profile/static/media/background-3.66a019e73fb5c80c3477.jpg",
-    "static/media/background-4.jpg": "/profile/static/media/background-4.0572534517a334b85941.jpg",
+    "main.js": "/profile/static/js/main.14191524.js",
+    "static/media/background-2.jpg": "/profile/static/media/background-2.45eb2d965e32bf05691f.jpg",
+    "static/media/background-1.jpg": "/profile/static/media/background-1.0e04ee98ead330602ff4.jpg",
+    "static/media/background-6.png": "/profile/static/media/background-6.3e3ad224f5d6b3b8040f.png",
+    "static/media/background-7.png": "/profile/static/media/background-7.27c62d2d8e551a551d6a.png",
+    "static/media/background-3.jpg": "/profile/static/media/background-3.47a3dfe6ab924ec0be70.jpg",
+    "static/media/background-4.jpg": "/profile/static/media/background-4.2652e91be01ace0fc213.jpg",
     "static/media/easesound.png": "/profile/static/media/easesound.5c87ba9d6df771ae7a7d.png",
-    "static/media/background-5.jpg": "/profile/static/media/background-5.3ea56ab5b9552afdc8ef.jpg",
+    "static/media/background-5.jpg": "/profile/static/media/background-5.4706360d8263acbdf413.jpg",
     "static/media/easestar.png": "/profile/static/media/easestar.10c1a2afdcd3d6132dc2.png",
     "static/media/resume.pdf": "/profile/static/media/resume.9b4b7bc6aaf97b723be2.pdf",
     "static/media/image-icon.png": "/profile/static/media/image-icon.17f768703f72e68fddf0.png",
     "static/media/resume-icon.png": "/profile/static/media/resume-icon.1dcd88bafbe53e7e3c7d.png",
     "index.html": "/profile/index.html",
     "main.2f360dbf.css.map": "/profile/static/css/main.2f360dbf.css.map",
-    "main.a38bba08.js.map": "/profile/static/js/main.a38bba08.js.map"
+    "main.14191524.js.map": "/profile/static/js/main.14191524.js.map"
   },
   "entrypoints": [
     "static/css/main.2f360dbf.css",
-    "static/js/main.a38bba08.js"
+    "static/js/main.14191524.js"
   ]
 }
