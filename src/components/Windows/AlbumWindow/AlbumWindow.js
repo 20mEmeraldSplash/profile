@@ -12,30 +12,30 @@ import maximizeIcon from '../../../assets/icons/fullscreen-icon.png'
 import minimizeIcon from '../../../assets/icons/minscreen-icon.png'
 import wallpaperIcon from '../../../assets/icons/wallpaper-icon.png'
 
-import backgroundImage1 from '../../../assets/background/background-1.jpg'
-import backgroundImage2 from '../../../assets/background/background-2.jpg'
-import backgroundImage3 from '../../../assets/background/background-3.jpg'
-import backgroundImage4 from '../../../assets/background/background-4.jpg'
-import backgroundImage5 from '../../../assets/background/background-5.jpg'
-import backgroundImage6 from '../../../assets/background/background-6.png'
-import backgroundImage7 from '../../../assets/background/background-7.png'
+import image1 from '../../../assets/background/background-1.jpg'
+import image2 from '../../../assets/background/background-2.jpg'
+import image3 from '../../../assets/background/background-3.jpg'
+import image4 from '../../../assets/background/background-4.jpg'
+import image5 from '../../../assets/background/background-5.jpg'
+import image6 from '../../../assets/background/background-6.png'
+import image7 from '../../../assets/background/background-7.png'
 
-import thumbnailBackgroundImage1 from '../../../assets/background/thumbnail/background-1.jpg'
-import thumbnailBackgroundImage2 from '../../../assets/background/thumbnail/background-2.jpg'
-import thumbnailBackgroundImage3 from '../../../assets/background/thumbnail/background-3.jpg'
-import thumbnailBackgroundImage4 from '../../../assets/background/thumbnail/background-4.jpg'
-import thumbnailBackgroundImage5 from '../../../assets/background/thumbnail/background-5.jpg'
-import thumbnailBackgroundImage6 from '../../../assets/background/thumbnail/background-6.png'
-import thumbnailBackgroundImage7 from '../../../assets/background/thumbnail/background-7.png'
+import thumbnailImage1 from '../../../assets/background/thumbnail/background-1.jpg'
+import thumbnailImage2 from '../../../assets/background/thumbnail/background-2.jpg'
+import thumbnailImage3 from '../../../assets/background/thumbnail/background-3.jpg'
+import thumbnailImage4 from '../../../assets/background/thumbnail/background-4.jpg'
+import thumbnailImage5 from '../../../assets/background/thumbnail/background-5.jpg'
+import thumbnailImage6 from '../../../assets/background/thumbnail/background-6.png'
+import thumbnailImage7 from '../../../assets/background/thumbnail/background-7.png'
 
 function AlbumWindow({ onClose, onChangeBackground }) {
   const [isMaximized, setIsMaximized] = useState(false)
-  const [selectedMenu, setSelectedMenu] = useState('library')
+  const [selectedMenu, setSelectedMenu] = useState('library') // 默认选中 Library
   const [viewImage, setViewImage] = useState(null)
   const [isPopupVisible, setIsPopupVisible] = useState(false)
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 })
 
-  const buttonRef = useRef(null) // 用于获取按钮的位置
+  const buttonRef = useRef(null)
 
   const toggleMaximize = () => {
     setIsMaximized(!isMaximized)
@@ -57,15 +57,15 @@ function AlbumWindow({ onClose, onChangeBackground }) {
     if (viewImage && onChangeBackground) {
       onChangeBackground(viewImage)
     }
-    setIsPopupVisible(false) // 关闭弹窗
+    setIsPopupVisible(false)
   }
 
   const handlePopupToggle = () => {
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect()
       setPopupPosition({
-        top: rect.bottom + window.scrollY + 8, // 让弹窗出现在按钮正下方，8px 间距
-        left: rect.left + rect.width / 2 + window.scrollX, // 弹窗居中对齐按钮
+        top: rect.bottom + window.scrollY + 8,
+        left: rect.left + rect.width / 2 + window.scrollX,
       })
     }
     setIsPopupVisible(!isPopupVisible)
@@ -73,11 +73,10 @@ function AlbumWindow({ onClose, onChangeBackground }) {
 
   const handleClickOutside = event => {
     if (buttonRef.current && !buttonRef.current.contains(event.target)) {
-      setIsPopupVisible(false) // 点击外部区域时关闭弹窗
+      setIsPopupVisible(false)
     }
   }
 
-  // 在组件挂载时添加事件监听器
   React.useEffect(() => {
     if (isPopupVisible) {
       window.addEventListener('click', handleClickOutside)
@@ -89,8 +88,9 @@ function AlbumWindow({ onClose, onChangeBackground }) {
 
   const menuItems = [
     {
-      title: 'Library',
+      title: 'Photos',
       items: [
+        { key: 'library', label: 'Library' },
         { key: 'wallpaper', label: 'Wallpaper' },
         { key: 'avatar', label: 'Avatar' },
       ],
@@ -105,34 +105,71 @@ function AlbumWindow({ onClose, onChangeBackground }) {
   ]
 
   const libraryImages = [
-    { thumbnail: thumbnailBackgroundImage1, original: backgroundImage1 },
-    { thumbnail: thumbnailBackgroundImage2, original: backgroundImage2 },
-    { thumbnail: thumbnailBackgroundImage3, original: backgroundImage3 },
-    { thumbnail: thumbnailBackgroundImage4, original: backgroundImage4 },
-    { thumbnail: thumbnailBackgroundImage5, original: backgroundImage5 },
-    { thumbnail: thumbnailBackgroundImage6, original: backgroundImage6 },
-    { thumbnail: thumbnailBackgroundImage7, original: backgroundImage7 },
+    {
+      thumbnail: thumbnailImage1,
+      original: image1,
+      category: 'wallpaper',
+    },
+    {
+      thumbnail: thumbnailImage2,
+      original: image2,
+      category: 'wallpaper',
+    },
+    {
+      thumbnail: thumbnailImage3,
+      original: image3,
+      category: 'wallpaper',
+    },
+    {
+      thumbnail: thumbnailImage4,
+      original: image4,
+      category: 'wallpaper',
+    },
+    {
+      thumbnail: thumbnailImage5,
+      original: image5,
+      category: 'avatar',
+    },
+    {
+      thumbnail: thumbnailImage6,
+      original: image6,
+      category: 'avatar',
+    },
+    {
+      thumbnail: thumbnailImage7,
+      original: image7,
+      category: '2023',
+    },
   ]
 
-  const renderLibraryContent = () => (
-    <div className="album-window-library-content">
-      <div className="album-window-library-grid">
-        {libraryImages.map((image, index) => (
-          <div
-            key={index}
-            className="album-window-library-item"
-            onClick={() => handleImageClick(image.original)}
-          >
-            <img
-              src={image.thumbnail}
-              alt={`Library ${index}`}
-              loading="lazy"
-            />
-          </div>
-        ))}
+  const renderLibraryContent = () => {
+    const filteredImages =
+      selectedMenu === 'library'
+        ? libraryImages // 显示所有图片
+        : libraryImages.filter(
+            image => image.category.toLowerCase() === selectedMenu
+          )
+
+    return (
+      <div className="album-window-library-content">
+        <div className="album-window-library-grid">
+          {filteredImages.map((image, index) => (
+            <div
+              key={index}
+              className="album-window-library-item"
+              onClick={() => handleImageClick(image.original)}
+            >
+              <img
+                src={image.thumbnail}
+                alt={`Library ${index}`}
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 
   const renderMenu = () => (
     <div className="album-window-menu">
@@ -165,14 +202,7 @@ function AlbumWindow({ onClose, onChangeBackground }) {
         </div>
       )
     }
-    switch (selectedMenu) {
-      case 'library':
-        return renderLibraryContent()
-      case 'map':
-        return <div>Map Content</div>
-      default:
-        return null
-    }
+    return renderLibraryContent() // 始终根据 `selectedMenu` 显示相应内容
   }
 
   return (
@@ -210,7 +240,7 @@ function AlbumWindow({ onClose, onChangeBackground }) {
               <button
                 className="exit-fullscreen-button"
                 onClick={handlePopupToggle}
-                ref={buttonRef} // 绑定按钮的 ref
+                ref={buttonRef}
               >
                 <FontAwesomeIcon icon={faArrowUpFromBracket} />
               </button>
@@ -221,7 +251,7 @@ function AlbumWindow({ onClose, onChangeBackground }) {
                     position: 'absolute',
                     top: `${popupPosition.top}px`,
                     left: `${popupPosition.left}px`,
-                    transform: 'translateX(-50%)', // 水平居中对齐按钮
+                    transform: 'translateX(-50%)',
                     zIndex: 1000,
                   }}
                 >
@@ -240,11 +270,10 @@ function AlbumWindow({ onClose, onChangeBackground }) {
             <div className="album-window-content-header">
               <div className="album-window-content-header-title">
                 {menuItems.find(item => item.key === selectedMenu)?.label ||
-                  'Select a Menu'}
+                  'Library'}
               </div>
             </div>
           )}
-
           {renderContent()}
         </div>
       </div>
